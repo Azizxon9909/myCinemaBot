@@ -3,8 +3,6 @@ const TelegramBot = require("node-telegram-bot-api");
 const mongoose = require("mongoose");
 const config = require("./config");
 const geolib = require("geolib");
-const express = require('express')
-const app = express()
 const _ = require("lodash");
 const helper = require("./helper");
 const kb = require("./keyboard-buttons");
@@ -18,13 +16,8 @@ const User = require("./model/User");
 
 helper.logStart();
 const bot = new TelegramBot(config.TOKEN, {
-  webHook: {
-    port: process.env.PORT,
-    autoOpen:false
-  }
+  polling: true
 });
-bot.openWebHook()
-bot.setWebHook(process.env.PORT)
 
 mongoose
   .connect(config.DB_URL, {
@@ -355,7 +348,3 @@ function sendCinemasByQuery(userId, query) {
   });
 }
 
-let port = process.env.PORT
-app.listen(port, () => {
-  console.log(`server http://localhost:${port}/ portda ishladi`);
-});
