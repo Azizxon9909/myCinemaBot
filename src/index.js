@@ -18,17 +18,17 @@ const bot = new TelegramBot(config.TOKEN, {
   polling: true,
 });
 
-mongoose.connect(config.DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const db = mongoose.connection;
-db.on("open", () => {
-  console.log("MongoDB running");
-});
-db.on("error", () => {
-  console.log("MongoDB eror running", err);
-});
+mongoose
+  .connect(config.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDBga ulanish hosil qilindi...");
+  })
+  .catch((err) => {
+    console.error("MongoDBga ulanish vaqtida xato ro'y berdi...", err);
+  });
 // database.films.forEach(f => new FilmDB(f).save())
 // database.cinemas.forEach(f => new CinemaDB(f).save())
 
