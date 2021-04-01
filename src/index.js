@@ -140,7 +140,7 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
 bot.onText(/\/c(.+)/, (msg, [src, match]) => {
   const cinemaUuid = helper.getItemUuid(src);
   CinemaDB.findOne({ uuid: cinemaUuid }).then((cinema) => {
-    console.log(cinema);
+    // console.log(cinema);
     bot.sendMessage(msg.chat.id, `Kinoteatr ${cinema.name}`, {
       reply_markup: {
         inline_keyboard: [
