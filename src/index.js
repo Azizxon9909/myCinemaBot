@@ -20,7 +20,7 @@ const bot = new TelegramBot(config.TOKEN, {
 });
 
 mongoose
-  .connect('mongodb+srv://user:qazwsxas@cluster0.zkbqs.mongodb.net/CinemaBot', {
+  .connect(config.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
