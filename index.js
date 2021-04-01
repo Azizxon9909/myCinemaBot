@@ -1,18 +1,18 @@
 process.env.NTBA_FIX_319 = 1;
 const TelegramBot = require("node-telegram-bot-api");
 const mongoose = require("mongoose");
-const config = require("./config");
+const config = require("./src/config");
 const geolib = require("geolib");
 const _ = require("lodash");
-const helper = require("./helper");
-const kb = require("./keyboard-buttons");
-const keyboard = require("./keyboard");
-const FilmDB = require("./model/Film");
-const CinemaDB = require("./model/Cinema");
-const UserDB = require("./model/User");
-const database = require("../MOCK_DATA.json");
-const Cinema = require("./model/Cinema");
-const User = require("./model/User");
+const helper = require("./src/helper");
+const kb = require("./src/keyboard-buttons");
+const keyboard = require("./src/keyboard");
+const FilmDB = require("./src/model/Film");
+const CinemaDB = require("./src/model/Cinema");
+const UserDB = require("./src/model/User");
+const database = require("./MOCK_DATA.json");
+const Cinema = require("./src/model/Cinema");
+const User = require("./src/model/User");
 
 helper.logStart();
 const bot = new TelegramBot(config.TOKEN, {
