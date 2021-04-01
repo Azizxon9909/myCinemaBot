@@ -1,3 +1,4 @@
+process.env.NTBA_FIX_319 = 1;
 const TelegramBot = require("node-telegram-bot-api");
 const mongoose = require("mongoose");
 const config = require("./config");
@@ -19,7 +20,7 @@ const bot = new TelegramBot(config.TOKEN, {
 });
 
 mongoose
-  .connect(config.DB_URL, {
+  .connect('mongodb+srv://user:qazwsxas@cluster0.zkbqs.mongodb.net/CinemaBot', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
