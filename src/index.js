@@ -17,7 +17,13 @@ const Cinema = require("./model/Cinema");
 const User = require("./model/User");
 
 helper.logStart();
-const bot = new TelegramBot(config.TOKEN);
+const bot = new TelegramBot(config.TOKEN, {
+  webHook: {
+    port: process.env.PORT,
+    autoOpen:false
+  }
+});
+bot.openWebHook()
 bot.setWebHook(process.env.PORT)
 
 mongoose
