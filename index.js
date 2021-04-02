@@ -1,9 +1,9 @@
-process.env.NTBA_FIX_319 = 1;
 const TelegramBot = require("node-telegram-bot-api");
 const mongoose = require("mongoose");
 const config = require("./src/config");
 const geolib = require("geolib");
 const _ = require("lodash");
+require('dotenv').config()
 const helper = require("./src/helper");
 const kb = require("./src/keyboard-buttons");
 const keyboard = require("./src/keyboard");
@@ -15,12 +15,12 @@ const Cinema = require("./src/model/Cinema");
 const User = require("./src/model/User");
 
 helper.logStart();
-const bot = new TelegramBot(config.TOKEN, {
+const bot = new TelegramBot(process.env.TOKEN, {
   polling: true
 });
 
 mongoose
-  .connect(config.DB_URL, {
+  .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
