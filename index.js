@@ -1,6 +1,5 @@
 const TelegramBot = require("node-telegram-bot-api");
 const mongoose = require("mongoose");
-const config = require("./src/config");
 const geolib = require("geolib");
 const _ = require("lodash");
 require('dotenv').config()
